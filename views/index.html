@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link type="text/css"  href="views/index.css" rel="stylesheet" >
+{% endblock %}
+
+
+{% block body %}
+    {% if connectUser  == true %}   <!-- Si l'utilisateur est connecté  -->
+        
+        <h1>Tableau de bord</h1>
+        <button class="start" onclick="window.location.href='?c=user&t=openSession';"> Mon espace </button>
+        <button class="start" onclick="window.location.href='?c=user&t=closeSession';"> Déconnexion</a>
+        
+        
+        {% else %} <!-- Si l'utilisateur n'est pas encore connecté  -->
+        <div class="user">
+        <button class="start" onclick="window.location.href='?c=user&t=create';"> Créer un compte</button>
+        <button class="start" onclick="window.location.href='?c=user&t=login';"> Se connecter</button>
+        </div>
+    
+     {% endif %}
+{% endblock %}
+
+
+
+
+
